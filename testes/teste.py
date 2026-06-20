@@ -1,6 +1,5 @@
 # Desenha apenas uma linha
 # Ao desenhar outra, apaga a anterior
-
 import tkinter as tk
 
 def marca_inicio(event):
