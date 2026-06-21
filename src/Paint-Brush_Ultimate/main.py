@@ -1,6 +1,7 @@
 # Desenha apenas uma linha
 # Ao desenhar outra, apaga a anterior
 enter = input("Digite a forma que deseja desenhar:\n opções:\n- linha\n- retangulo\n- oval\n")
+cor_preenchimento = input("Digite a cor de preenchimento: \n opções:\n- red\n- blue\n- green\n- yellow\n- pink\n- black\n ")
 
 if enter == "linha":
     def atualiza_fim(event):
@@ -15,7 +16,7 @@ elif enter == "oval":
         fim_x = event.x
         fim_y = event.y
         canvas.delete("all")  # apaga a linha anterior
-        canvas.create_oval(ini_x, ini_y, fim_x, fim_y)  # desenha a nova linha
+        canvas.create_oval(ini_x, ini_y, fim_x, fim_y, fill=cor_preenchimento)  # desenha a nova linha
 else:
     print("Opção inválida. Por favor, execute o programa novamente e escolha uma opção válida.")
     quit()
