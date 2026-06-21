@@ -9,7 +9,7 @@ janela.title("Janela main")
 janela.resizable(False,False) # proibe que a tela seja redimencionada, fica mais d boa trabalhar kk 
 
 botoes = btf.botoes(janela)
-meio = tc.telaDdesenho(janela,botoes) #  Chama o arquivo telaDesenho
+meio = tc.telaDdesenho(janela,botoes) #  Chama o arquivo telaDdesenho
 
 
 janela.mainloop()
