@@ -1,28 +1,20 @@
 # Contribuições
 
 ---
-## Rian Silva Santos
-### Entrega 1
+## Rian Silva Santos(lonlyz)
 - Criação da possibilidade de desenhar ovais
-### Entrega 2
 - Criação da possibilidade de escolher cores
-
-
 ---
-## Pedro Henrique dos Santos
-### Entrega 1
-### Entrega 2
+## Pedro Henrique dos Santos(thedevPedro)
 - Criação do esqueleto inicial em OO
 
 ---
-## Kayo Vinicius Reis Ramos
-### Entrega 1
+## Kayo Vinicius Reis Ramos(Kayovrr)
 - criação do botoesfunc
 
 
 ---
-## Orlando Gabriel Nascimento dos Santos
-### Entrega 1
+## Orlando Gabriel Nascimento dos Santos(gabrielze334)
 - Preenchimento das figuras
 
 ---
