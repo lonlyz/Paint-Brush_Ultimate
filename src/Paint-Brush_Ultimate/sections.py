@@ -1,9 +1,8 @@
 import tkinter as tk
 import botoesfunc as btf
 
-# para executar esse programa, execute o telaPrincipal
-class telaDdesenho: 
-
+class TeladPintura: 
+    """Classe que define o canvas(Tela de pintura)"""
     def __init__(self,conteiner,botoes):
 
         #UI
@@ -87,3 +86,15 @@ class telaDdesenho:
                 )
 
     
+class Header:
+    """Classe para funcionalidades de cabeçalho"""
+    pass
+
+class ToolBar: 
+    """Classe para a área de ferramentas"""
+    def __init__(self, parent):
+        self.frame = tk.Frame(parent)
+        self.buttons = []
+
+    def addTool(self,Tool): #Função para adicionar ferramentas
+        self.buttons.append(Tool)
