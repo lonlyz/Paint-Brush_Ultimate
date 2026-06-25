@@ -15,6 +15,6 @@
 
 ---
 ## Orlando Gabriel Nascimento dos Santos
-
+- Preenchimento das figuras
 
 ---
