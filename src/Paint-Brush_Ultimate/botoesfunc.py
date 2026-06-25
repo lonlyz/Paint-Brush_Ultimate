@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from tkinter import colorchooser
 class botoes:
 
     def __init__(self,conteiner):
@@ -47,72 +47,18 @@ class botoes:
 
         self.cor = "Black" # < cor padrão
 
-        corVermelho = tk.Button(
-            self.frame,
-            bg="red",
-            height=1,
-            width=2, 
-            bd=2,
-            relief="raised",
-            command=lambda: self.seleciona_cor("red")
-        )
-        corVermelho.pack(pady=5)
 
-        corVerde = tk.Button(
+        botaoMultcor = tk.Button(
             self.frame,
-            bg="green",
+            command=self.escolher_cor,
+            text="cor",
             height=1,
             width=2,
-            bd = 2,
-            relief="raised",
-            command=lambda: self.seleciona_cor("green")
+            relief="solid"
         )
-        corVerde.pack(pady=5)
+        botaoMultcor.pack(pady=5)
+       
 
-        corAzul = tk.Button(
-            self.frame,
-            bg="blue",
-            height=1,
-            width=2,
-            bd = 2,
-            relief="raised",
-            command=lambda: self.seleciona_cor("blue")
-        )
-        corAzul.pack(pady=5)
-
-        corAmarelo = tk.Button(
-            self.frame,
-            bg="yellow",
-            height=1,
-            width=2,
-            bd = 2,
-            relief="raised",
-            command=lambda: self.seleciona_cor("yellow")
-        )
-        corAmarelo.pack(pady=5)
-        
-        corRosa = tk.Button(
-            self.frame,
-            bg="pink",
-            height=1,
-            width=2,
-            bd = 2,
-            relief="raised",
-            command=lambda: self.seleciona_cor("pink")
-        )
-        corRosa.pack(pady=5)
-
-        corPreto = tk.Button(
-            self.frame,
-            bg="black",
-            height=1,
-            width=2,
-            bd = 2,
-            relief="raised",
-            command=lambda: self.seleciona_cor("black")
-
-        )
-        corPreto.pack(pady=5)
 
     # funçoes operacionais   :)
         
@@ -123,6 +69,14 @@ class botoes:
     def selecionar_forma(self,forma):
         self.forma = forma
         #print(forma) # somente para testes
+
+    def escolher_cor(self):
+
+        cor_selecionada = colorchooser.askcolor(title="Escolha uma cor")
+
+        if cor_selecionada[1] is not None:
+           self.cor = cor_selecionada[1]
+  
         
 
     

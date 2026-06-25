@@ -12,7 +12,10 @@ class Interface:
 
         self.tela_configs()
         self.frames()
-
+        
+        self.botoes = btf.botoes(self.janela)
+        self.telaPint = TeladPintura(self.janela,self.botoes)
+        
         self.janela.mainloop()
     
     def tela_configs(self):
@@ -23,6 +26,9 @@ class Interface:
     def frames(self):
         self.frame_toolBar = tk.Frame(self.janela)
         self.frame_toolBar.place(relx = 0.1, rely = 1, relwidth = 0.3, relheight = 1)
+
+    
+    
 
 Interface()
 
