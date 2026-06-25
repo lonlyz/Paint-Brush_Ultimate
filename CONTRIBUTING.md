@@ -8,7 +8,7 @@
 
 ---
 ## Pedro Henrique dos Santos
-### Entrega 1
+### Entrega 2
 - Criação do esqueleto inicial em OO
 
 ---
