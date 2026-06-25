@@ -4,10 +4,13 @@
 ## Rian Silva Santos
 ### Entrega 1
 - Criação da possibilidade de desenhar ovais
+### Entrega 2
+- Criação da possibilidade de escolher cores
 
 
 ---
 ## Pedro Henrique dos Santos
+### Entrega 1
 ### Entrega 2
 - Criação do esqueleto inicial em OO
 
