@@ -6,7 +6,7 @@
 
 ---
 ## Pedro Henrique dos Santos
-
+- Criação do esqueleto inicial em OO
 
 ---
 ## Kayo Vinicius Reis Ramos
