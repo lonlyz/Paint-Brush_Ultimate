@@ -1,4 +1,4 @@
-from Figuras import Figuras
+from figures import Figuras
 
 
 class Retangulo(Figuras):
