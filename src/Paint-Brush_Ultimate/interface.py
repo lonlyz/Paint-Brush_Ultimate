@@ -1,6 +1,6 @@
 import tkinter as tk
 import elements as Elm
-import StatesButton as Stb
+import Controller.StatesButton as Stb
 
 class Interface:
     def __init__(self):

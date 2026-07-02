@@ -1,4 +1,4 @@
-from figures import Figuras
+from Controller.figures import Figuras
 
 class Retangulo(Figuras):
     def __init__(self, canvas):

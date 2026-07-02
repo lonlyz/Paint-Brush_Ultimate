@@ -1,4 +1,4 @@
-import FigsDef as figs
+import Model.FigsDef as figs
 
 class StateMachine:
     def __init__(self, currentState):
