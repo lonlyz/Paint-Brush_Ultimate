@@ -1,4 +1,4 @@
-import FigsDef as figs
+import Model.FigsDef as figs
 from tkinter import colorchooser
 
 class Toolbar:
