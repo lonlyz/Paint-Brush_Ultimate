@@ -61,3 +61,15 @@ class Canvas:
 
     def MarcaInicio(self, event):
          self.stateDict[self.stateObj.currentState].marca_inicio(event)
+
+class header:
+
+    def __init__(self,window,mod,stateObj):
+
+        self.janela = window
+        self.ref = mod
+        self.stateObj = stateObj
+
+        self.frame = mod.Frame(self.janela,bg = "#31487A",height=60)
+        self.frame.pack(side="top", fill="x", padx=10, pady=10)
+        

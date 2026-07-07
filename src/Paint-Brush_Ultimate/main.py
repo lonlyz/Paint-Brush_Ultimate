@@ -9,7 +9,8 @@ class Interface:
         
         self.statemachine = Stb.StateMachine("maoLivre")
 
-        self.toolbar = Elm.Toolbar(self.janela, tk, self.statemachine)    
+        self.toolbar = Elm.Toolbar(self.janela, tk, self.statemachine) 
+        self.header = Elm.header(self.janela, tk, self.statemachine) 
         self.canvas = Elm.Canvas(self.janela, tk, self.statemachine, self.toolbar)
         
         
