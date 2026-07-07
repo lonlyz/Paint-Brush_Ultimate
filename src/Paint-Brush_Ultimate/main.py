@@ -1,5 +1,5 @@
 import tkinter as tk
-import elements as Elm
+from View import elements as Elm
 import Controller.StatesButton as Stb
 
 class Interface:
