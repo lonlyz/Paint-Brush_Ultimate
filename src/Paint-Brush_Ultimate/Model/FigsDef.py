@@ -1,4 +1,5 @@
 from Controller.figures import Figuras
+from tkinter import filedialog
 
 class Retangulo(Figuras):
     def __init__(self, canvas):
@@ -100,3 +101,14 @@ class MaoLivre(Figuras):
         
         self.ini_x = event.x
         self.ini_y = event.y
+
+def save():
+    file_path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON files", "*.json")])
+    if file_path:
+        return file_path
+    return None
+def open():
+    file_path = filedialog.askopenfilename(filetypes=[("JSON files", "*.json")])
+    if file_path:
+        return file_path
+    return None
