@@ -16,6 +16,8 @@ class Toolbar:
         self.ref.Button(self.frame, text="Linha", command=lambda: stateObj.switchState("linha")).pack(side="top", fill="x", pady=5, padx=5)
         self.ref.Button(self.frame, text="Polígono", command=lambda: stateObj.switchState("poligono")).pack(side="top", fill="x", pady=5, padx=5)
         self.ref.Button(self.frame, text="Arco", command=lambda: stateObj.switchState("arco")).pack(side="top", fill="x", pady=5, padx=5)
+        self.ref.Button(self.frame, text="Salvar arquivo", command=lambda: figs.save()).pack(side="top", fill="x", pady=5, padx=5)
+        self.ref.Button(self.frame, text="Abrir arquivo", command=lambda: figs.open()).pack(side="top", fill="x", pady=5, padx=5)
 
         self.btn_cor = self.ref.Button(
             self.frame, 
