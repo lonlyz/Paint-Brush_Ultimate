@@ -1,5 +1,8 @@
 from Controller.figures import Figuras
 from tkinter import filedialog
+import json
+import tkinter as tk
+from tkinter import messagebox
 
 class Retangulo(Figuras):
     def __init__(self, canvas):
@@ -102,13 +105,40 @@ class MaoLivre(Figuras):
         self.ini_x = event.x
         self.ini_y = event.y
 
-def save():
-    file_path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON files", "*.json")])
+def save_json():
+    file_path = filedialog.asksaveasfilename(
+        defaultextension=".json",
+        filetypes=[("JSON files", "*.json")],
+        initialdir="src/salvo"
+        )
     if file_path:
-        return file_path
-    return None
-def open():
-    file_path = filedialog.askopenfilename(filetypes=[("JSON files", "*.json")])
+        try:
+            infos = None
+            dados = json.loads(infos)
+
+            with open(file_path, 'w',encoding='utf-8') as arquivo:
+                json.dump(dados, arquivo, indent=4, ensure_ascii=False)
+
+                messagebox.showinfo("Sucesso", "Arquivo JSON salvo com sucesso!")
+        except json.JSONDecodeError:
+            messagebox.showerror("Erro", "O texto inserido não está em um formato JSON válido.")
+        except Exception as e:
+            messagebox.showerror("Erro", f"Não foi possível salvar o arquivo:\n{e}")
+
+def open_json():
+    file_path = filedialog.askopenfilename(
+        filetypes=[("JSON files", "*.json")],
+        initialdir="src/salvo"
+        )
+    
     if file_path:
-        return file_path
-    return None
+        try:
+            with open(file_path, 'r', encoding='utf-8') as arquivo:
+                dados = json.load(arquivo)
+
+                #entrada_texto.delete("1.0", tk.END)
+                #entrada_texto.insert(tk.END, json.dumps(dados, indent=4))
+                
+                messagebox.showinfo("Sucesso", "Arquivo JSON carregado com sucesso!")
+        except Exception as e:
+            messagebox.showerror("Erro", f"Não foi possível carregar o arquivo:\n{e}")
