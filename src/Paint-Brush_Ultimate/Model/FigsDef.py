@@ -26,7 +26,8 @@ class Retangulo(Figuras):
     def saveToArray(self, event, cor): 
         self.fim_x = event.x
         self.fim_y = event.y
-        self.arrayDraws.append([self.ini_x, self.ini_y, self.fim_x, self.fim_y, cor])
+        Retangulo_cordenadas = [self.ini_x, self.ini_y, self.fim_x, self.fim_y, cor]
+        self.arrayDraws.append({"pontos":Retangulo_cordenadas,"Cor":cor})
         print("Retângulos salvos!:", self.arrayDraws)
 
 class Oval(Figuras):
@@ -52,10 +53,11 @@ class Oval(Figuras):
             fill=cor
         )
 
-    def saveToArray(self, event):
+    def saveToArray(self, event,cor):
         self.fim_x = event.x
         self.fim_y = event.y
-        self.arrayDraws.append([self.ini_x, self.ini_y, self.fim_x, self.fim_y])
+        Oval_cordenadas = [self.ini_x, self.ini_y, self.fim_x, self.fim_y]
+        self.arrayDraws.append({"pontos":Oval_cordenadas,"cor":cor})
         print("Ovais salvas!:", self.arrayDraws)
 
 
@@ -82,10 +84,12 @@ class Linha(Figuras):
             fill=cor
         )
 
-    def saveToArray(self, event):
+    def saveToArray(self, event,cor):
         self.fim_x = event.x
         self.fim_y = event.y
-        self.arrayDraws.append([self.ini_x, self.ini_y, self.fim_x, self.fim_y])
+
+        linha_Cordenada = [self.ini_x, self.ini_y, self.fim_x, self.fim_y]
+        self.arrayDraws.append({"Pontos":linha_Cordenada,"cor":cor})
         print("Linhas salvas!:", self.arrayDraws)
 
 
@@ -117,7 +121,7 @@ class Poligono(Figuras):
             outline="black"
         )
 
-    def saveToArray(self, event):
+    def saveToArray(self, event,cor):
         self.fim_x = event.x
         self.fim_y = event.y
         ponto3_x = self.ini_x - (self.fim_x - self.ini_x)
@@ -128,7 +132,7 @@ class Poligono(Figuras):
             self.fim_x, self.fim_y, 
             ponto3_x, self.fim_y
         ]
-        self.arrayDraws.append(triangulo_final)
+        self.arrayDraws.append({"Pontos":triangulo_final,"cor":cor})
         print("Polígonos salvos!:", self.arrayDraws)
 
 
@@ -156,10 +160,10 @@ class Arco(Figuras):
             style="arc"
         )
 
-    def saveToArray(self, event):
+    def saveToArray(self, event,cor):
         self.fim_x = event.x
         self.fim_y = event.y
-        self.arrayDraws.append([self.ini_x, self.ini_y, self.fim_x, self.fim_y])
+        self.arrayDraws.append({"Pontos":[self.ini_x, self.ini_y, self.fim_x, self.fim_y],"cor":cor})
         print("Arcos salvos!:", self.arrayDraws)
 
 
@@ -185,7 +189,7 @@ class MaoLivre(Figuras):
         self.ini_y = event.y
         self.caminho_atual.append((self.ini_x, self.ini_y))
 
-    def saveToArray(self, event):
-        self.arrayDraws.append(list(self.caminho_atual))
+    def saveToArray(self, event,cor):
+        self.arrayDraws.append({"pontos":list(self.caminho_atual),"cor":cor})
         self.caminho_atual.clear()
         print("Mão livre salva! Todos os traços:", self.arrayDraws)
