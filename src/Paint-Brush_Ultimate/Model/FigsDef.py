@@ -1,11 +1,37 @@
 from Controller.figures import Figuras
+import Controller.FigsManager as fgm
 
+class FiguraRetangulo:
+
+    def __init__(self, x1, y1, x2, y2, cor):
+        self.x1 = x1
+        self.y1 = y1
+        self.x2 = x2
+        self.y2 = y2
+        self.cor = cor
+   
+    def __repr__(self):
+        
+        return ( f"Retangulo({self.x1}, {self.y1}, "f"{self.x2}, {self.y2}, {self.cor})")
+        
+
+    def foiClick(self,x,y):
+
+        xMim = min(self.x1,self.x2)
+        xmax = max(self.x1,self.x2)
+
+        ymin = min(self.y1,self.y2)
+        ymax = max(self.y1,self.y2)
+
+        return xMim <= x <= xmax and ymin <= y <= ymax
+
+    
 class Retangulo(Figuras):
     def __init__(self, canvas):
         self.tela = canvas
         self.ini_x = self.ini_y = self.fim_x = self.fim_y = 0
         self.drawsFinish = 0 
-        self.arrayDraws = [] 
+        self.arrayDraws = [] # da erro quando eu apago
 
     def marca_inicio(self, event):
         self.ini_x = event.x
@@ -23,11 +49,51 @@ class Retangulo(Figuras):
             fill=cor
         )
 
-    def saveToArray(self, event, cor): 
+    def saveToArray(self, event, cor):
+
         self.fim_x = event.x
         self.fim_y = event.y
-        self.arrayDraws.append([self.ini_x, self.ini_y, self.fim_x, self.fim_y, cor])
-        print("Retângulos salvos!:", self.arrayDraws)
+
+        figura = FiguraRetangulo(
+            self.ini_x,
+            self.ini_y,
+            self.fim_x,
+            self.fim_y,
+            cor
+        )
+
+        fgm.manager.figuras.append(figura)
+
+        print("Figura adicionada:")
+        print(figura)
+
+        print("\nTodas as figuras:")
+
+        for fig in fgm.manager.figuras:
+            print(fig)
+
+class figuraOval:
+    def __init__(self, x1, y1, x2, y2, cor):
+        self.x1 = x1
+        self.y1 = y1
+        self.x2 = x2
+        self.y2 = y2
+        self.cor = cor
+   
+    def __repr__(self):
+        
+        return ( f"Oval({self.x1}, {self.y1}, "f"{self.x2}, {self.y2}, {self.cor})")
+    
+    
+    def foiClick(self,x,y):
+
+        xMim = min(self.x1,self.x2)
+        xmax = max(self.x1,self.x2)
+
+        ymin = min(self.y1,self.y2)
+        ymax = max(self.y1,self.y2)
+
+        return xMim <= x <= xmax and ymin <= y <= ymax
 
 class Oval(Figuras):
     def __init__(self, canvas):
@@ -52,11 +118,52 @@ class Oval(Figuras):
             fill=cor
         )
 
-    def saveToArray(self, event, cor):
+    def saveToArray(self, event,cor):
+
         self.fim_x = event.x
         self.fim_y = event.y
-        self.arrayDraws.append([self.ini_x, self.ini_y, self.fim_x, self.fim_y, cor])
-        print("Ovais salvas!:", self.arrayDraws)
+
+        figura =  figuraOval(
+            self.ini_x,
+            self.ini_y,
+            self.fim_x,
+            self.fim_y,
+            cor
+        )
+
+        fgm.manager.figuras.append(figura)
+
+        print("Figura adicionada:")
+        print(figura)
+
+        print("\nTodas as figuras:")
+
+        for fig in fgm.manager.figuras:
+            print(fig)
+       
+       
+class figuraLinha:
+    def __init__(self, x1, y1, x2, y2, cor):
+        self.x1 = x1
+        self.y1 = y1
+        self.x2 = x2
+        self.y2 = y2
+        self.cor = cor
+   
+    def __repr__(self):
+        
+        return ( f"linha({self.x1}, {self.y1}, "f"{self.x2}, {self.y2}, {self.cor})")
+    
+    
+    def foiClick(self,x,y):
+
+        xMim = min(self.x1,self.x2)
+        xmax = max(self.x1,self.x2)
+
+        ymin = min(self.y1,self.y2)
+        ymax = max(self.y1,self.y2)
+
+        return xMim <= x <= xmax and ymin <= y <= ymax
 
 
 class Linha(Figuras):
@@ -82,12 +189,55 @@ class Linha(Figuras):
             fill=cor
         )
 
-    def saveToArray(self, event, cor):
+    def saveToArray(self, event,cor):
+
         self.fim_x = event.x
         self.fim_y = event.y
-        self.arrayDraws.append([self.ini_x, self.ini_y, self.fim_x, self.fim_y, cor])
-        print("Linhas salvas!:", self.arrayDraws)
 
+        figura =  figuraLinha(
+            self.ini_x,
+            self.ini_y,
+            self.fim_x,
+            self.fim_y,
+            cor
+        )
+
+        fgm.manager.figuras.append(figura)
+
+        print("Figura adicionada:")
+        print(figura)
+
+        print("\nTodas as figuras:")
+
+        for fig in fgm.manager.figuras:
+            print(fig)
+
+class figuraPoligono:
+    def __init__(self, x1, y1, x2, y2,x3,y3, cor):
+        self.x1 = x1
+        self.y1 = y1
+        self.x2 = x2
+        self.y2 = y2
+        self.x3 = x3
+        self.y3 = y3
+        self.cor = cor
+   
+    def __repr__(self):
+        
+        return ( f"poligono({self.x1}, {self.y1}, "f"{self.x2}, {self.y2},{self.x3},{self.y3} {self.cor})")
+    
+    
+    def foiClick(self,x,y):
+
+        xMim = min(self.x1,self.x2,self.x3)
+        xmax = max(self.x1,self.x2,self.x3)
+
+        ymin = min(self.y1,self.y2,self.y3)
+        ymax = max(self.y1,self.y2,self.y3)
+
+        return xMim <= x <= xmax and ymin <= y <= ymax
+
+       
 
 class Poligono(Figuras):
     def __init__(self, canvas):
@@ -117,20 +267,48 @@ class Poligono(Figuras):
             outline="black"
         )
 
-    def saveToArray(self, event, cor):
+    def saveToArray(self, event,cor):
         self.fim_x = event.x
         self.fim_y = event.y
         ponto3_x = self.ini_x - (self.fim_x - self.ini_x)
         
-        
-        triangulo_final = [
-            self.ini_x, self.ini_y, 
+        figura = figuraPoligono( self.ini_x, self.ini_y, 
             self.fim_x, self.fim_y, 
-            ponto3_x, self.fim_y, cor
-        ]
-        self.arrayDraws.append(triangulo_final)
-        print("Polígonos salvos!:", self.arrayDraws)
+            ponto3_x, self.fim_y,cor)
+        
+        fgm.manager.figuras.append(figura)
 
+        print("Figura adicionada:")
+        print(figura)
+
+        print("\nTodas as figuras:")
+
+        for fig in fgm.manager.figuras:
+
+            print(fig)
+     
+class figuraArco:
+    def __init__(self, x1, y1, x2, y2, cor):
+        self.x1 = x1
+        self.y1 = y1
+        self.x2 = x2
+        self.y2 = y2
+        self.cor = cor
+   
+    def __repr__(self):
+        
+        return ( f"arco({self.x1}, {self.y1}, "f"{self.x2}, {self.y2}, {self.cor})")
+    
+    
+    def foiClick(self,x,y):
+
+        xMim = min(self.x1,self.x2)
+        xmax = max(self.x1,self.x2)
+
+        ymin = min(self.y1,self.y2)
+        ymax = max(self.y1,self.y2)
+
+        return xMim <= x <= xmax and ymin <= y <= ymax
 
 class Arco(Figuras):
     def __init__(self, canvas):
@@ -156,11 +334,28 @@ class Arco(Figuras):
             style="arc"
         )
 
-    def saveToArray(self, event, cor):
+    def saveToArray(self, event,cor):
+
         self.fim_x = event.x
         self.fim_y = event.y
-        self.arrayDraws.append([self.ini_x, self.ini_y, self.fim_x, self.fim_y, cor])
-        print("Arcos salvos!:", self.arrayDraws)
+
+        figura =  figuraArco(
+            self.ini_x,
+            self.ini_y,
+            self.fim_x,
+            self.fim_y,
+            cor
+        )
+
+        fgm.manager.figuras.append(figura)
+
+        print("Figura adicionada:")
+        print(figura)
+
+        print("\nTodas as figuras:")
+
+        for fig in fgm.manager.figuras:
+            print(fig)
 
 
 class MaoLivre(Figuras):
@@ -185,7 +380,8 @@ class MaoLivre(Figuras):
         self.ini_y = event.y
         self.caminho_atual.append((self.ini_x, self.ini_y))
 
-    def saveToArray(self, event, cor):
-        self.arrayDraws.append(list(self.caminho_atual))
+    def saveToArray(self, event,cor):
+        self.arrayDraws.append({"pontos":list(self.caminho_atual),"cor":cor})
         self.caminho_atual.clear()
         print("Mão livre salva! Todos os traços:", self.arrayDraws)
+        fgm.manager.ListFig_Global["arco"].append({"pontos": self.caminho_atual, "Cor": cor})

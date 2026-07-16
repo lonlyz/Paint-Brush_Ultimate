@@ -6,8 +6,7 @@
 - Criação da possibilidade de escolher cores
 ---
 ## Pedro Henrique dos Santos(thedevPedro)
-- Refatoração em OO
-- Criação do salvar e carregar
+- Criação do esqueleto inicial em OO
 
 ---
 ## Kayo Vinicius Reis Ramos(Kayovrr)
