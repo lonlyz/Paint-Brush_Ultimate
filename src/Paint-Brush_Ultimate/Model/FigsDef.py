@@ -28,6 +28,7 @@ class Retangulo(Figuras):
         self.fim_y = event.y
         Retangulo_cordenadas = [self.ini_x, self.ini_y, self.fim_x, self.fim_y, cor]
         self.arrayDraws.append({"pontos":Retangulo_cordenadas,"Cor":cor})
+        self.arrayDraws.append([self.ini_x, self.ini_y, self.fim_x, self.fim_y, cor])
         print("Retângulos salvos!:", self.arrayDraws)
 
 class Oval(Figuras):
