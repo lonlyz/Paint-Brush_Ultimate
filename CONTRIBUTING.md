@@ -11,6 +11,8 @@
 ---
 ## Kayo Vinicius Reis Ramos(Kayovrr)
 - criação do botoesfunc
+- criação do figManager
+- esboços iniciais da arquitetura MVC
 
 
 ---
