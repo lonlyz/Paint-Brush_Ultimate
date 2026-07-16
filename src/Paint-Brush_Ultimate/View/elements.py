@@ -1,5 +1,12 @@
 import Model.FigsDef as figs
 from tkinter import colorchooser
+from Model import JsonManager as jm
+
+
+    #window: recebe a instancia da janela 'Tk()'
+    #mod: recebe a referencia 'tk'
+    #stateObj: recebe a instancia do objeto da máquina de estados
+    #jsonObj: recebe a instancia do objeto gestor de salvamento e carregamento de dados
 
 class Toolbar:
     def __init__(self, window, mod, stateObj):
@@ -52,8 +59,10 @@ class Canvas:
             "arco": figs.Arco(self.canvas)
         }      
 
-        self.canvas.bind('<B1-Motion>', self.Create)
         self.canvas.bind('<Button-1>', self.MarcaInicio)
+        self.canvas.bind('<B1-Motion>', self.Create)
+        self.canvas.bind('<ButtonRelease-1>', self.FinishDraw)
+    
 
     def Create(self, event):
         cor = self.toolbarObj.cor_atual
@@ -61,15 +70,21 @@ class Canvas:
 
     def MarcaInicio(self, event):
          self.stateDict[self.stateObj.currentState].marca_inicio(event)
+    
+    def FinishDraw(self, event):
+         cor = self.toolbarObj.cor_atual
+         self.stateDict[self.stateObj.currentState].saveToArray(event,cor)
 
 class header:
 
-    def __init__(self,window,mod,stateObj):
+    def __init__(self, window, mod, stateObj, JmObj):
 
         self.janela = window
         self.ref = mod
         self.stateObj = stateObj
+        
 
         self.frame = mod.Frame(self.janela,bg = "#31487A",height=60)
         self.frame.pack(side="top", fill="x", padx=10, pady=10)
-        
+        self.ref.Button(self.frame, text="Salvar arquivo", command=lambda: JmObj.save()).pack(side="left", fill="x", pady=5, padx=5)
+        self.ref.Button(self.frame, text="Abrir arquivo", command=lambda: JmObj.load()).pack(side="left", fill="x", pady=5, padx=5)
